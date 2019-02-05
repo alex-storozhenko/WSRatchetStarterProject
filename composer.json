@@ -1,0 +1,31 @@
+{
+    "name": "alex/ws-ratchet-starter-project",
+    "description": "Simple skeleton for the start project based on php ratchet websockets",
+    "type": "project",
+    "license": "The Unlicense",
+    "authors": [
+        {
+            "name": "Alex Storozhenko",
+            "email": "a.storozhenko@live.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2",
+        "cboden/ratchet": "^0.4.1"
+    },
+    "require-dev": {
+        "ratchet/pawl": "^0.3.4",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
