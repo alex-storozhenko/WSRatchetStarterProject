@@ -18,7 +18,7 @@ interface WSConnectionRepositoryInterface
      *
      * @return $this
      */
-    public function put(WSConnectionInterface $connection);
+    public function put(WSConnectionInterface $connection): self;
 
     /**
      * Delete this connection
@@ -27,7 +27,7 @@ interface WSConnectionRepositoryInterface
      *
      * @return $this
      */
-    public function delete(int $connectionId);
+    public function delete(int $connectionId): self;
 
     /**
      * Get connection by id

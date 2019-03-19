@@ -195,7 +195,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
      *
      * @return WSConnectionInterface[]
      */
-    public function whereSignature(string $value, string $operator)
+    public function whereSignature(string $value, string $operator): ?array
     {
         switch ($operator) {
             case '=':

@@ -20,7 +20,7 @@ class StdOutLogger implements WSLoggerInterface
      * @param WSConnectionInterface $connection
      * @param string $method
      */
-    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection, string $method = '')
+    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection, string $method = ''):void
     {
         // Divider
         $this->write("");
@@ -38,7 +38,7 @@ class StdOutLogger implements WSLoggerInterface
      *
      * @param string $s
      */
-    public function write(string $s)
+    public function write(string $s):void
     {
         echo "{$s} \n";
     }
@@ -65,7 +65,7 @@ class StdOutLogger implements WSLoggerInterface
      *
      * @param Exception $e
      */
-    public function exception(Exception $e)
+    public function exception(Exception $e):void
     {
         $t = get_class($e);
         $m = $e->getMessage();

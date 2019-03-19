@@ -39,7 +39,7 @@ class WSConnection implements WSConnectionInterface
     }
 
     /** Create connection signature */
-    private function sign()
+    private function sign(): void
     {
         $signaturePayload = $this->ratchetConn->httpRequest->getHeaders();
 
@@ -53,7 +53,7 @@ class WSConnection implements WSConnectionInterface
      *
      * @return int
      */
-    public function resourceId()
+    public function resourceId(): int
     {
         return $this->ratchetConn->resourceId;
     }
@@ -63,7 +63,7 @@ class WSConnection implements WSConnectionInterface
      *
      * @return string
      */
-    public function signature()
+    public function signature(): string
     {
         return $this->signature;
     }
@@ -75,7 +75,7 @@ class WSConnection implements WSConnectionInterface
      *
      * @return ConnectionInterface
      */
-    public function send($data)
+    public function send($data): ConnectionInterface
     {
         $this->ratchetConn->send($data);
 

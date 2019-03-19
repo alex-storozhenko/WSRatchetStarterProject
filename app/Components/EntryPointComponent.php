@@ -41,7 +41,7 @@ class EntryPointComponent implements MessageComponentInterface
      *
      * @param ConnectionInterface $conn
      */
-    function onOpen(ConnectionInterface $conn)
+    function onOpen(ConnectionInterface $conn): void
     {
         $conn = (new WSConnection($conn));
 
@@ -55,7 +55,7 @@ class EntryPointComponent implements MessageComponentInterface
      * @param ConnectionInterface $conn
      * @param MessageInterface $msg
      */
-    public function onMessage(ConnectionInterface $conn, MessageInterface $msg)
+    public function onMessage(ConnectionInterface $conn, MessageInterface $msg): void
     {
         $conn = $this->repository->get($conn->resourceId);
 
@@ -69,7 +69,7 @@ class EntryPointComponent implements MessageComponentInterface
      *
      * @param ConnectionInterface $conn
      */
-    public function onClose(ConnectionInterface $conn)
+    public function onClose(ConnectionInterface $conn): void
     {
         $conn = $this->repository->get($conn->resourceId);
 
@@ -83,7 +83,7 @@ class EntryPointComponent implements MessageComponentInterface
      * @param ConnectionInterface $conn
      * @param Exception $e
      */
-    public function onError(ConnectionInterface $conn, Exception $e)
+    public function onError(ConnectionInterface $conn, Exception $e): void
     {
         $this->logger->exception($e);
     }

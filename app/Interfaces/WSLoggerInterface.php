@@ -22,7 +22,7 @@ interface WSLoggerInterface
      *
      * @return void
      */
-    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection);
+    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection):void;
 
     /**
      * Log information about connection
@@ -40,7 +40,7 @@ interface WSLoggerInterface
      *
      * @return void
      */
-    public function exception(Exception $e);
+    public function exception(Exception $e):void;
 
     /**
      * Write into log
@@ -49,5 +49,5 @@ interface WSLoggerInterface
      *
      * @return void
      */
-    public function write(string $s);
+    public function write(string $s):void;
 }
