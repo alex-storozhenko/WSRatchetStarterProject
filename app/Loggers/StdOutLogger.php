@@ -40,7 +40,7 @@ class StdOutLogger implements WSLoggerInterface
      */
     public function write(string $s):void
     {
-        echo "{$s} \n";
+        echo "{$s} ". PHP_EOL;
     }
 
     /**
