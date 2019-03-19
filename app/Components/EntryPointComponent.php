@@ -43,7 +43,7 @@ class EntryPointComponent implements MessageComponentInterface
      */
     function onOpen(ConnectionInterface $connection): void
     {
-        $connection = (new WSConnection($connection));
+        $connection = new WSConnection($connection);
 
         $this->repository->put($connection);
         $this->logger->happenedWithConnection('Connection opened.', $connection);
