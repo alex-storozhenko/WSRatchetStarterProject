@@ -125,7 +125,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
 
                 break;
             default:
-                throw new InvalidArgumentException("Passed invalid property of Connection. Acceptable properties: id, owner, ownerType, app, signature");
+                throw new InvalidArgumentException('Passed invalid property of Connection. Acceptable properties: id, owner, ownerType, app, signature');
         }
 
         return $connections;

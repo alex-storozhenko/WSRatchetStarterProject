@@ -23,7 +23,7 @@ class StdOutLogger implements WSLoggerInterface
     public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection, string $method = ''):void
     {
         // Divider
-        $this->write("");
+        $this->write('');
 
         if ($method) {
             $this->write($method);
