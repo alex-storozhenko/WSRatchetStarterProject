@@ -39,51 +39,51 @@ class EntryPointComponent implements MessageComponentInterface
     /**
      * @inheritdoc
      *
-     * @param ConnectionInterface $conn
+     * @param ConnectionInterface $connection
      */
-    function onOpen(ConnectionInterface $conn): void
+    function onOpen(ConnectionInterface $connection): void
     {
-        $conn = (new WSConnection($conn));
+        $connection = (new WSConnection($connection));
 
-        $this->repository->put($conn);
-        $this->logger->happenedWithConnection('Connection opened.', $conn);
+        $this->repository->put($connection);
+        $this->logger->happenedWithConnection('Connection opened.', $connection);
     }
 
     /**
      * @inheritdoc
      *
-     * @param ConnectionInterface $conn
+     * @param ConnectionInterface $connection
      * @param MessageInterface $msg
      */
-    public function onMessage(ConnectionInterface $conn, MessageInterface $msg): void
+    public function onMessage(ConnectionInterface $connection, MessageInterface $msg): void
     {
-        $conn = $this->repository->get($conn->resourceId);
+        $connection = $this->repository->get($connection->resourceId);
 
-        $this->logger->happenedWithConnection("Receive \"{$msg}\".", $conn);
+        $this->logger->happenedWithConnection("Receive \"{$msg}\".", $connection);
 
-        $conn->send($msg);
+        $connection->send($msg);
     }
 
     /**
      * @inheritdoc
      *
-     * @param ConnectionInterface $conn
+     * @param ConnectionInterface $connection
      */
-    public function onClose(ConnectionInterface $conn): void
+    public function onClose(ConnectionInterface $connection): void
     {
-        $conn = $this->repository->get($conn->resourceId);
+        $connection = $this->repository->get($connection->resourceId);
 
-        $this->repository->delete($conn->resourceId());
-        $this->logger->happenedWithConnection('Connection closed.', $conn);
+        $this->repository->delete($connection->resourceId());
+        $this->logger->happenedWithConnection('Connection closed.', $connection);
     }
 
     /**
      * @inheritdoc
      *
-     * @param ConnectionInterface $conn
+     * @param ConnectionInterface $connection
      * @param Exception $e
      */
-    public function onError(ConnectionInterface $conn, Exception $e): void
+    public function onError(ConnectionInterface $connection, Exception $e): void
     {
         $this->logger->exception($e);
     }
