@@ -2,6 +2,8 @@
 
 namespace App\Interfaces;
 
+use Exception;
+
 /**
  * WebSocket logger object contract
  *
@@ -34,11 +36,11 @@ interface WSLoggerInterface
     /**
      * Log exception
      *
-     * @param \Exception $e
+     * @param Exception $e
      *
      * @return void
      */
-    public function exception(\Exception $e);
+    public function exception(Exception $e);
 
     /**
      * Write into log

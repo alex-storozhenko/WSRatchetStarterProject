@@ -3,6 +3,7 @@
 namespace App\MessageHandlers;
 
 use App\Interfaces\WSMessageHandlerInterface;
+use BadMethodCallException;
 
 /**
  * Class MessageHandler
@@ -34,6 +35,6 @@ abstract class MessageHandler implements WSMessageHandlerInterface
      */
     public function __call($name, $arguments)
     {
-        throw new \BadMethodCallException("Method [{$name}] does not exist on [" . get_class($this) . '].');
+        throw new BadMethodCallException("Method [{$name}] does not exist on [" . get_class($this) . '].');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Components;
 use App\Interfaces\WSConnectionRepositoryInterface;
 use App\Interfaces\WSLoggerInterface;
 use App\WSConnection;
+use Exception;
 use Ratchet\ConnectionInterface;
 use Ratchet\RFC6455\Messaging\MessageInterface;
 use Ratchet\WebSocket\MessageComponentInterface;
@@ -80,9 +81,9 @@ class EntryPointComponent implements MessageComponentInterface
      * @inheritdoc
      *
      * @param ConnectionInterface $conn
-     * @param \Exception $e
+     * @param Exception $e
      */
-    public function onError(ConnectionInterface $conn, \Exception $e)
+    public function onError(ConnectionInterface $conn, Exception $e)
     {
         $this->logger->exception($e);
     }

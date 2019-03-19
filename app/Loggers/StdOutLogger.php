@@ -4,6 +4,7 @@ namespace App\Loggers;
 
 use App\Interfaces\WSConnectionInterface;
 use App\Interfaces\WSLoggerInterface;
+use Exception;
 
 /**
  * Class StdOutLog
@@ -62,9 +63,9 @@ class StdOutLogger implements WSLoggerInterface
     /**
      * @inheritdoc
      *
-     * @param \Exception $e
+     * @param Exception $e
      */
-    public function exception(\Exception $e)
+    public function exception(Exception $e)
     {
         $t = get_class($e);
         $m = $e->getMessage();
