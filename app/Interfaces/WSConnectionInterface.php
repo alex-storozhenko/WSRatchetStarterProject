@@ -18,7 +18,7 @@ interface WSConnectionInterface extends RatchetConnection
      *
      * @return int
      */
-    public function resourceId();
+    public function resourceId(): int;
 
     /**
      * Get a unique connection identifier,
@@ -28,5 +28,5 @@ interface WSConnectionInterface extends RatchetConnection
      *
      * @return string
      */
-    public function signature();
+    public function signature(): string;
 }

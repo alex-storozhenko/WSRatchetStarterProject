@@ -4,4 +4,4 @@ out
 gen
 /vendor
 .env
-
+/tests/.phpunit.result.cache

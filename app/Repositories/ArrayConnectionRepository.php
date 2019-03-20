@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\WSConnectionInterface;
 use App\Interfaces\WSConnectionRepositoryInterface;
+use InvalidArgumentException;
 
 /**
  * Class ArrayConnectionRepository
@@ -124,7 +125,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
 
                 break;
             default:
-                throw new \InvalidArgumentException("Passed invalid property of Connection. Acceptable properties: id, owner, ownerType, app, signature");
+                throw new InvalidArgumentException('Passed invalid property of Connection. Acceptable properties: id, owner, ownerType, app, signature');
         }
 
         return $connections;
@@ -180,7 +181,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
 
                 break;
             default:
-                throw new \InvalidArgumentException("Passed invalid operator for id comparing. Acceptable operators: =, !=, <, >, <=, >=");
+                throw new InvalidArgumentException("Passed invalid operator for id comparing. Acceptable operators: =, !=, <, >, <=, >=");
         }
     }
 
@@ -194,7 +195,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
      *
      * @return WSConnectionInterface[]
      */
-    public function whereSignature(string $value, string $operator)
+    public function whereSignature(string $value, string $operator): ?array
     {
         switch ($operator) {
             case '=':
@@ -210,7 +211,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
 
                 break;
             default:
-                throw new \InvalidArgumentException("Passed invalid operator for signature comparing. Acceptable operators: =, !=");
+                throw new InvalidArgumentException("Passed invalid operator for signature comparing. Acceptable operators: =, !=");
         }
     }
 }

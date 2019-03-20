@@ -3,10 +3,10 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$app = (new \App\Components\EntryPointComponent(
+$app = new \App\Components\EntryPointComponent(
             new \App\Repositories\ArrayConnectionRepository,
             new \App\Loggers\StdOutLogger
-        ));
+        );
 
 $server = \Ratchet\Server\IoServer::factory(
     new \Ratchet\Http\HttpServer(

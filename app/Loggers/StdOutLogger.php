@@ -4,6 +4,7 @@ namespace App\Loggers;
 
 use App\Interfaces\WSConnectionInterface;
 use App\Interfaces\WSLoggerInterface;
+use Exception;
 
 /**
  * Class StdOutLog
@@ -19,10 +20,10 @@ class StdOutLogger implements WSLoggerInterface
      * @param WSConnectionInterface $connection
      * @param string $method
      */
-    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection, string $method = '')
+    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection, string $method = ''):void
     {
         // Divider
-        $this->write("");
+        $this->write('');
 
         if ($method) {
             $this->write($method);
@@ -37,9 +38,9 @@ class StdOutLogger implements WSLoggerInterface
      *
      * @param string $s
      */
-    public function write(string $s)
+    public function write(string $s):void
     {
-        echo "{$s} \n";
+        echo "{$s} ". PHP_EOL;
     }
 
     /**
@@ -62,9 +63,9 @@ class StdOutLogger implements WSLoggerInterface
     /**
      * @inheritdoc
      *
-     * @param \Exception $e
+     * @param Exception $e
      */
-    public function exception(\Exception $e)
+    public function exception(Exception $e):void
     {
         $t = get_class($e);
         $m = $e->getMessage();
