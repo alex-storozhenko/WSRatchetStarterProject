@@ -3,11 +3,9 @@
 namespace App\Interfaces;
 
 /**
- * Repository of WebSockets connections contract
+ * Repository of WebSockets connections contract.
  *
  * Interface WSConnectionRepositoryInterface
- *
- * @package App\Interfaces
  */
 interface WSConnectionRepositoryInterface
 {
@@ -21,7 +19,7 @@ interface WSConnectionRepositoryInterface
     public function put(WSConnectionInterface $connection): self;
 
     /**
-     * Delete this connection
+     * Delete this connection.
      *
      * @param int $connectionId
      *
@@ -30,7 +28,7 @@ interface WSConnectionRepositoryInterface
     public function delete(int $connectionId): self;
 
     /**
-     * Get connection by id
+     * Get connection by id.
      *
      * @param int $connectionId
      *
@@ -57,7 +55,7 @@ interface WSConnectionRepositoryInterface
 
     /**
      * Returns connections, that
-     * suitable for these conditions
+     * suitable for these conditions.
      *
      * @param $property
      * @param $value

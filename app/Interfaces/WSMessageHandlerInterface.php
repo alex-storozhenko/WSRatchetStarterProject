@@ -3,17 +3,15 @@
 namespace App\Interfaces;
 
 /**
- * Interface WSMessageHandler
- *
- * @package App\Interfaces
+ * Interface WSMessageHandler.
  */
 interface WSMessageHandlerInterface
 {
     /**
-     * Handle
+     * Handle.
      *
      * @param string $action
-     * @param array $args
+     * @param array  $args
      *
      * @return mixed
      */

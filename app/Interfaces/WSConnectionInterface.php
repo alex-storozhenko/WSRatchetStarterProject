@@ -5,16 +5,14 @@ namespace App\Interfaces;
 use Ratchet\ConnectionInterface as RatchetConnection;
 
 /**
- * WebSocket connection contract
+ * WebSocket connection contract.
  *
  * Interface WSConnectionInterface
- *
- * @package App\Interfaces
  */
 interface WSConnectionInterface extends RatchetConnection
 {
     /**
-     * Returns the resource identifier for this connection
+     * Returns the resource identifier for this connection.
      *
      * @return int
      */

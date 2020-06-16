@@ -7,14 +7,12 @@ use App\Interfaces\WSConnectionRepositoryInterface;
 use InvalidArgumentException;
 
 /**
- * Class ArrayConnectionRepository
- *
- * @package App\Repositories
+ * Class ArrayConnectionRepository.
  */
 class ArrayConnectionRepository implements WSConnectionRepositoryInterface
 {
     /**
-     * Storage
+     * Storage.
      *
      * Format:
      * Key is integer $ratchetConn->resourceId
@@ -28,12 +26,13 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
      *      (int)$resourceId => (App\Interfaces\WSConnectionInterface)Connection
      * ]
      * </code>
+     *
      * @var array
      */
     protected static $connections = [];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param int $connectionId
      *
@@ -45,7 +44,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param int $connectionId
      *
@@ -59,7 +58,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @return array
      */
@@ -69,7 +68,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param WSConnectionInterface $connection
      *
@@ -83,7 +82,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param $connectionId
      *
@@ -95,7 +94,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * Acceptable properties: resourceId, signature
      *
@@ -115,12 +114,12 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
     {
         switch ($property) {
             case 'resourceId':
-                $value = (int)$value;
+                $value = (int) $value;
                 $connections = $this->whereResourceId($value, $operator);
 
                 break;
             case 'signature':
-                $value = (string)$value;
+                $value = (string) $value;
                 $connections = $this->whereSignature($value, $operator);
 
                 break;
@@ -132,7 +131,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
     }
 
     /**
-     * Selection connections by id
+     * Selection connections by id.
      *
      * @param int $value
      *
@@ -181,12 +180,12 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
 
                 break;
             default:
-                throw new InvalidArgumentException("Passed invalid operator for id comparing. Acceptable operators: =, !=, <, >, <=, >=");
+                throw new InvalidArgumentException('Passed invalid operator for id comparing. Acceptable operators: =, !=, <, >, <=, >=');
         }
     }
 
     /**
-     * Selection connections by connection signature
+     * Selection connections by connection signature.
      *
      * @param string $value
      *
@@ -211,7 +210,7 @@ class ArrayConnectionRepository implements WSConnectionRepositoryInterface
 
                 break;
             default:
-                throw new InvalidArgumentException("Passed invalid operator for signature comparing. Acceptable operators: =, !=");
+                throw new InvalidArgumentException('Passed invalid operator for signature comparing. Acceptable operators: =, !=');
         }
     }
 }

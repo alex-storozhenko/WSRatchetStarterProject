@@ -6,14 +6,12 @@ use App\Interfaces\WSConnectionInterface;
 use Ratchet\ConnectionInterface;
 
 /**
- * Class WSConnection
- *
- * @package App
+ * Class WSConnection.
  */
 class WSConnection implements WSConnectionInterface
 {
     /**
-     * Ratchet connection
+     * Ratchet connection.
      *
      * @var ConnectionInterface
      */
@@ -49,7 +47,7 @@ class WSConnection implements WSConnectionInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @return int
      */
@@ -59,7 +57,7 @@ class WSConnection implements WSConnectionInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @return string
      */
@@ -69,7 +67,7 @@ class WSConnection implements WSConnectionInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param string $data
      *
@@ -83,7 +81,7 @@ class WSConnection implements WSConnectionInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @return mixed
      */

@@ -6,17 +6,15 @@ use App\Interfaces\WSMessageHandlerInterface;
 use BadMethodCallException;
 
 /**
- * Class MessageHandler
- *
- * @package App\MessageHandlers
+ * Class MessageHandler.
  */
 abstract class MessageHandler implements WSMessageHandlerInterface
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param string $action
-     * @param array $args
+     * @param array  $args
      *
      * @return mixed
      */
@@ -26,7 +24,7 @@ abstract class MessageHandler implements WSMessageHandlerInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * Denied access to magic __call
      *
@@ -35,6 +33,6 @@ abstract class MessageHandler implements WSMessageHandlerInterface
      */
     public function __call($name, $arguments)
     {
-        throw new BadMethodCallException("Method [{$name}] does not exist on [" . get_class($this) . '].');
+        throw new BadMethodCallException("Method [{$name}] does not exist on [".get_class($this).'].');
     }
 }
