@@ -12,9 +12,7 @@ use Ratchet\WebSocket\MessageComponentInterface;
 
 /**
  * Entry point for WebSocket clients
- * Class EntryPointComponent
- *
- * @package App\Components
+ * Class EntryPointComponent.
  */
 class EntryPointComponent implements MessageComponentInterface
 {
@@ -28,7 +26,7 @@ class EntryPointComponent implements MessageComponentInterface
      * EntryPointComponent constructor.
      *
      * @param WSConnectionRepositoryInterface $repository
-     * @param WSLoggerInterface $logger
+     * @param WSLoggerInterface               $logger
      */
     public function __construct(WSConnectionRepositoryInterface $repository, WSLoggerInterface $logger)
     {
@@ -37,11 +35,11 @@ class EntryPointComponent implements MessageComponentInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param ConnectionInterface $connection
      */
-    function onOpen(ConnectionInterface $connection): void
+    public function onOpen(ConnectionInterface $connection): void
     {
         $connection = new WSConnection($connection);
 
@@ -50,10 +48,10 @@ class EntryPointComponent implements MessageComponentInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param ConnectionInterface $connection
-     * @param MessageInterface $msg
+     * @param MessageInterface    $msg
      */
     public function onMessage(ConnectionInterface $connection, MessageInterface $msg): void
     {
@@ -65,7 +63,7 @@ class EntryPointComponent implements MessageComponentInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param ConnectionInterface $connection
      */
@@ -78,10 +76,10 @@ class EntryPointComponent implements MessageComponentInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param ConnectionInterface $connection
-     * @param Exception $e
+     * @param Exception           $e
      */
     public function onError(ConnectionInterface $connection, Exception $e): void
     {

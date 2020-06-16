@@ -5,27 +5,25 @@ namespace App\Interfaces;
 use Exception;
 
 /**
- * WebSocket logger object contract
+ * WebSocket logger object contract.
  *
  * Interface WSLoggerInterface
- *
- * @package App\Interfaces
  */
 interface WSLoggerInterface
 {
     /**
      * Log action,
-     * that happen with connection
+     * that happen with connection.
      *
-     * @param string $whatHappened
+     * @param string                $whatHappened
      * @param WSConnectionInterface $connection
      *
      * @return void
      */
-    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection):void;
+    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection): void;
 
     /**
-     * Log information about connection
+     * Log information about connection.
      *
      * @param WSConnectionInterface $connection
      *
@@ -34,20 +32,20 @@ interface WSLoggerInterface
     public function connectionInfo(WSConnectionInterface $connection);
 
     /**
-     * Log exception
+     * Log exception.
      *
      * @param Exception $e
      *
      * @return void
      */
-    public function exception(Exception $e):void;
+    public function exception(Exception $e): void;
 
     /**
-     * Write into log
+     * Write into log.
      *
      * @param string $s
      *
      * @return void
      */
-    public function write(string $s):void;
+    public function write(string $s): void;
 }

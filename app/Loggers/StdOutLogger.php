@@ -7,20 +7,18 @@ use App\Interfaces\WSLoggerInterface;
 use Exception;
 
 /**
- * Class StdOutLog
- *
- * @package App\Loggers
+ * Class StdOutLog.
  */
 class StdOutLogger implements WSLoggerInterface
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
-     * @param string $whatHappened
+     * @param string                $whatHappened
      * @param WSConnectionInterface $connection
-     * @param string $method
+     * @param string                $method
      */
-    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection, string $method = ''):void
+    public function happenedWithConnection(string $whatHappened, WSConnectionInterface $connection, string $method = ''): void
     {
         // Divider
         $this->write('');
@@ -30,21 +28,21 @@ class StdOutLogger implements WSLoggerInterface
         }
 
         $this->connectionInfo($connection);
-        $this->write('Action: ' . $whatHappened);
+        $this->write('Action: '.$whatHappened);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param string $s
      */
-    public function write(string $s):void
+    public function write(string $s): void
     {
-        echo "{$s} ". PHP_EOL;
+        echo "{$s} ".PHP_EOL;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param WSConnectionInterface $connection
      *
@@ -52,8 +50,8 @@ class StdOutLogger implements WSLoggerInterface
      */
     public function connectionInfo(WSConnectionInterface $connection)
     {
-        $id  = $connection->resourceId();
-        $s   = $connection->signature();
+        $id = $connection->resourceId();
+        $s = $connection->signature();
 
         $this->write('Connection:');
         $this->write("Connection[id] - {$id}");
@@ -61,11 +59,11 @@ class StdOutLogger implements WSLoggerInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @param Exception $e
      */
-    public function exception(Exception $e):void
+    public function exception(Exception $e): void
     {
         $t = get_class($e);
         $m = $e->getMessage();
